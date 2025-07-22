@@ -11,6 +11,7 @@ export const ja: Translation = {
 	[Key.categories]: "カテゴリ",
 	[Key.recentPosts]: "最近の投稿",
 	[Key.pinnedPosts]: "Pinned Posts",
+	[Key.projects]: "プロジェクト",
 
 	[Key.comments]: "コメント",
 

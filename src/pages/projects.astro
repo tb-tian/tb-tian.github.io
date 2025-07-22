@@ -1,0 +1,61 @@
+---
+import PostCard from "../components/PostCard.astro";
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { getPinnedPosts } from "../utils/content-utils";
+import { getPostUrlBySlug } from "../utils/url-utils";
+
+const projectPosts = await getPinnedPosts();
+
+let delay = 0;
+const interval = 50;
+---
+
+<MainGridLayout title="Projects">
+    <div class="card-base px-9 py-6 rounded-[var(--radius-large)] shadow-lg mb-8">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14,6V4H20V10H18V7.5L9.5,16H12V18H6V12H8V14.5L16.5,6H14Z"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-[var(--primary)]">
+                💻 {i18n(I18nKey.projects)}
+            </h1>
+        </div>
+        
+        {projectPosts.length === 0 ? (
+            <div class="text-center py-12">
+                <div class="text-6xl mb-4">💻</div>
+                <h2 class="text-xl font-semibold mb-2 text-75">No Projects Yet</h2>
+                <p class="text-50">Project posts will appear here when you add them.</p>
+            </div>
+        ) : (
+            <div class="mb-4">
+                <p class="text-50 mb-6">
+                    {projectPosts.length} {projectPosts.length === 1 ? 'project' : 'projects'}
+                </p>
+                
+                <div class="flex flex-col rounded-[var(--radius-large)] bg-[var(--card-bg)] py-1 md:py-0 md:bg-transparent md:gap-4">
+                    {projectPosts.map((entry) => (
+                        <PostCard
+                            entry={entry}
+                            title={entry.data.title}
+                            tags={entry.data.tags}
+                            category={entry.data.category}
+                            published={entry.data.published}
+                            updated={entry.data.updated}
+                            url={getPostUrlBySlug(entry.slug)}
+                            image={entry.data.image}
+                            description={entry.data.description}
+                            draft={entry.data.draft}
+                            class:list="onload-animation"
+                            style={`animation-delay: calc(var(--content-delay) + ${delay++ * interval}ms);`}
+                        />
+                    ))}
+                </div>
+            </div>
+        )}
+    </div>
+</MainGridLayout>

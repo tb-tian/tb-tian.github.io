@@ -37,7 +37,7 @@ pinned: false
 | `tags`        | The tags of the post.                                                                                                                                                                                       |
 | `category`    | The category of the post.                                                                                                                                                                                   |
 | `draft`        | If this post is still a draft, which won't be displayed.                                                                                                                                                    |
-| `pinned`      | If this post should be pinned to the top of the post list and featured in the pinned posts page.                                                                                                           |
+| `pinned`      | If this post should be marked as a project and featured in the projects page.                                                                                                                               |
 
 ## Where to Place the Post Files
 

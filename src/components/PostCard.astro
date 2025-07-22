@@ -54,7 +54,8 @@ const { remarkPluginFrontmatter } = await entry.render();
             {title}
             {entry.data.pinned && (
                 <span class="inline-flex items-center ml-2 px-2 py-1 text-xs font-medium bg-[var(--primary)] text-white rounded-full">
-                    📌 Pinned
+                    <Icon name="material-symbols:computer" class="w-3 h-3 mr-1"/>
+                    Project
                 </span>
             )}
             <Icon class="inline text-[2rem] text-[var(--primary)] md:hidden translate-y-0.5 absolute" name="material-symbols:chevron-right-rounded" ></Icon>

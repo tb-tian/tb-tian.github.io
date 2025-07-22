@@ -57,7 +57,7 @@
 					"type": "boolean"
 				},
 				{
-					"title": "pinned",
+					"title": "project",
 					"name": "pinned",
 					"type": "boolean"
 				},
