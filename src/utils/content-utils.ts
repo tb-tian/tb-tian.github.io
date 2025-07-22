@@ -10,6 +10,11 @@ async function getRawSortedPosts() {
 	});
 
 	const sorted = allBlogPosts.sort((a, b) => {
+		// First sort by pinned status (pinned posts first)
+		if (a.data.pinned && !b.data.pinned) return -1;
+		if (!a.data.pinned && b.data.pinned) return 1;
+
+		// Then sort by publication date
 		const dateA = new Date(a.data.published);
 		const dateB = new Date(b.data.published);
 		return dateA > dateB ? -1 : 1;
@@ -111,4 +116,33 @@ export async function getCategoryList(): Promise<Category[]> {
 		});
 	}
 	return ret;
+}
+
+// Get only pinned posts
+export async function getPinnedPosts() {
+	const allBlogPosts = await getCollection("posts", ({ data }) => {
+		return import.meta.env.PROD
+			? data.draft !== true && data.pinned === true
+			: data.pinned === true;
+	});
+
+	const sorted = allBlogPosts.sort((a, b) => {
+		const dateA = new Date(a.data.published);
+		const dateB = new Date(b.data.published);
+		return dateA > dateB ? -1 : 1;
+	});
+
+	return sorted;
+}
+
+// Get pinned posts list (without body content)
+export async function getPinnedPostsList(): Promise<PostForList[]> {
+	const pinnedFullPosts = await getPinnedPosts();
+
+	const pinnedPostsList = pinnedFullPosts.map((post) => ({
+		slug: post.slug,
+		data: post.data,
+	}));
+
+	return pinnedPostsList;
 }

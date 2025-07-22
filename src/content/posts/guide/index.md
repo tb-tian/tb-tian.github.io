@@ -6,6 +6,7 @@ image: "./cover.jpeg"
 tags: ["Fuwari", "Blogging", "Customization"]
 category: Guides
 draft: false
+pinned: true
 ---
 
 > Cover image source: [Source](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/208fc754-890d-4adb-9753-2c963332675d/width=2048/01651-1456859105-(colour_1.5),girl,_Blue,yellow,green,cyan,purple,red,pink,_best,8k,UHD,masterpiece,male%20focus,%201boy,gloves,%20ponytail,%20long%20hair,.jpeg)
@@ -23,6 +24,7 @@ image: ./cover.jpg
 tags: [Foo, Bar]
 category: Front-end
 draft: false
+pinned: false
 ---
 ```
 
@@ -35,6 +37,7 @@ draft: false
 | `tags`        | The tags of the post.                                                                                                                                                                                       |
 | `category`    | The category of the post.                                                                                                                                                                                   |
 | `draft`        | If this post is still a draft, which won't be displayed.                                                                                                                                                    |
+| `pinned`      | If this post should be pinned to the top of the post list and featured in the pinned posts page.                                                                                                           |
 
 ## Where to Place the Post Files
 

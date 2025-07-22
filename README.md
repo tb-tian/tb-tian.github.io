@@ -28,6 +28,7 @@ A static blog template built with [Astro](https://astro.build).
 - [x] [Markdown extended features](https://github.com/saicaca/fuwari?tab=readme-ov-file#-markdown-extended-syntax)
 - [x] Table of contents
 - [x] RSS feed
+- [x] Pinned posts feature
 
 ## 🚀 Getting Started
 
@@ -58,6 +59,7 @@ image: ./cover.jpg
 tags: [Foo, Bar]
 category: Front-end
 draft: false
+pinned: false
 lang: jp      # Set only if the post's language differs from the site's language in `config.ts`
 ---
 ```
