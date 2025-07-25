@@ -1,5 +1,5 @@
 ---
-title: CS229 - Lecture2
+title: CS229 - Lecture 2
 published: 2025-07-23
 description: 'Linear Regression learning algorithm'
 image: ''

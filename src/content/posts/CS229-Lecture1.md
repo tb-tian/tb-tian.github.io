@@ -1,5 +1,5 @@
 ---
-title: CS229 - Lecture1
+title: CS229 - Lecture 1
 published: 2025-07-19
 description: 'Introduction to Machine Learning'
 image: ''
