@@ -1,11 +1,12 @@
 ---
 title: CS229-Lecture1
 published: 2025-07-19
-description: 'CS229 Lecture 1 Summarization'
+description: 'Introduction to Machine Learning'
 image: ''
-tags: [Machine Learning, Learning]
+tags: [Machine Learning, Learning, CS229]
 category: ''
 draft: false 
+lang: 'en'
 ---
 
 # Introduction to Machine Learning
