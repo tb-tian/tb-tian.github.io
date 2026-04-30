@@ -18,7 +18,7 @@ function determineGiscusTheme() {
 
   let giscusAttributes = {
     src: "https://giscus.app/client.js",
-    "data-repo": "tb-tian/tian.github.io",
+    "data-repo": "tb-tian/tb-tian.github.io",
     "data-repo-id": "",
     "data-category": "Comments",
     "data-category-id": "",
