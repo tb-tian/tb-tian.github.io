@@ -1,0 +1,16 @@
+body {
+  max-width: 42rem;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  font: 16px/1.6 system-ui, -apple-system, sans-serif;
+  color: #222;
+}
+nav { display: flex; gap: 1rem; margin-bottom: 3rem; }
+a { color: #0645ad; }
+img { max-width: 100%; }
+
+.pubs { list-style: none; padding: 0; }
+.pubs li { margin-bottom: 1.2rem; }
+.pub-title { font-weight: 600; }
+h2 { margin-top: 2.5rem; font-size: 1.1rem; color: #666;
+     border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }

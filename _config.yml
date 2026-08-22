@@ -1,0 +1,9 @@
+title: Truong Bao Thien An
+description: Computer Science Undergraduate at VNUHCM - University of Science
+baseurl: ""
+url: "https://tb-tian.github.io"
+plugins: []
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor

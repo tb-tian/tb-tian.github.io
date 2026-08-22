@@ -1,0 +1,7 @@
+- title: "Attention Is All You Need"
+  authors: "Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin"
+  # venue: "NeurIPS"
+  year: 2023
+  url: "https://arxiv.org/abs/1706.03762"
+  # pdf: "https://arxiv.org/pdf/1234.5678"
+  # code: "https://github.com/you/project"
