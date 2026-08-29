@@ -1,7 +1,7 @@
 {% if page.mermaid %}
 <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-    document.querySelectorAll("code.language-mermaid").forEach((el) => {
+    document.querySelectorAll("code.language-mermaid, div.language-mermaid").forEach((el) => {
         const pre = document.createElement("pre");
         pre.className = "mermaid";
         pre.textContent = el.textContent.trim();
@@ -9,5 +9,22 @@
     });
     mermaid.initialize({ startOnLoad: false });
     mermaid.run();
+</script>
+{% endif %}
+
+{% if page.plotly %}
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2/plotly.min.js" defer></script>
+<script type="module">
+    document.querySelectorAll("code.language-plotly, div.language-plotly").forEach((el, i) => {
+        const src = el.textContent.trim();
+        const div = document.createElement("div");
+        (el.closest("div.highlighter-rouge") || el.closest("pre") || el).replaceWith(div);
+        try {
+            const spec = JSON.parse(src);
+            Plotly.newPlot(div, spec.data, spec.layout || {}, { responsive: true, ...spec.config });
+        } catch (e) {
+            div.textContent = `Plotly chart ${i + 1}: ${e.message}`;
+        }
+    });
 </script>
 {% endif %}
