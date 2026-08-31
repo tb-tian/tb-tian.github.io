@@ -3,6 +3,7 @@ layout: post
 title: "Hello world"
 mermaid: true
 plotly: true
+pseudocode: true
 ---
 
 My first post. al-folio is complicated so building blog on my own yay~
@@ -36,4 +37,20 @@ Plotly plots:
     "margin": {"t": 40, "r": 10, "b": 40, "l": 40}
   }
 }
+```
+
+Pseudocode:
+```pseudocode
+\begin{algorithm}
+\caption{Quicksort}
+\begin{algorithmic}
+\PROCEDURE{Quicksort}{$A, p, r$}
+    \IF{$p < r$}
+        \STATE $q \gets$ \CALL{Partition}{$A, p, r$}
+        \STATE \CALL{Quicksort}{$A, p, q-1$}
+        \STATE \CALL{Quicksort}{$A, q+1, r$}
+    \ENDIF
+\ENDPROCEDURE
+\end{algorithmic}
+\end{algorithm}
 ```
