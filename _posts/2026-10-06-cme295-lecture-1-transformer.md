@@ -69,11 +69,11 @@ Goal: learn word vectors that capture meaning by training on a simple prediction
 
 The network is shallow: a one-hot input of size $V$, a hidden layer of size $d$ (the embedding), and an output of size $V$ that is a probability distribution over the vocabulary.
 
-![Word2Vec network: an input layer of size V, a hidden layer of size d, and an output layer of size V](/assets/images/cme295/word2vec-architecture.png)
+![Word2Vec network: an input layer of size V, a hidden layer of size d, and an output layer of size V](/assets/images/cme295-lecture-1/word2vec-architecture.png)
 
 **Example (next-word prediction).** The input is the one-hot vector for "A", and the model should predict "cute". The hidden activations $[0.2, 0.9]$ are the learned embedding of "A". After training, the hidden-layer weights are the word embeddings.
 
-![The one-hot vector for "A" passes through a 2-dimensional hidden layer and gives an output distribution whose highest probability is "cute"](/assets/images/cme295/word2vec-next-word-example.png)
+![The one-hot vector for "A" passes through a 2-dimensional hidden layer and gives an output distribution whose highest probability is "cute"](/assets/images/cme295-lecture-1/word2vec-next-word-example.png)
 
 ## RNNs and LSTMs
 
@@ -81,7 +81,7 @@ The network is shallow: a one-hot input of size $V$, a hidden layer of size $d$ 
 
 RNNs were introduced in the 1980s. They are networks whose connections form a **temporal sequence**: at each step $t$, the hidden state $a^{\langle t \rangle}$ combines the current input $x^{\langle t \rangle}$ with the previous state $a^{\langle t-1 \rangle}$.
 
-![An unrolled RNN: each cell takes the input x⟨t⟩ and the previous hidden state a⟨t−1⟩, and outputs y⟨t⟩](/assets/images/cme295/rnn-general-form.png)
+![An unrolled RNN: each cell takes the input x⟨t⟩ and the previous hidden state a⟨t−1⟩, and outputs y⟨t⟩](/assets/images/cme295-lecture-1/rnn-general-form.png)
 
 - **Pros:** handles sequences of any length; the same weights are shared across all time steps.
 - **Cons:**
@@ -93,7 +93,7 @@ RNNs were introduced in the 1980s. They are networks whose connections form a **
 
 LSTMs were introduced in *Long Short-Term Memory* (1997). They add a structured **cell state** $c^{\langle t \rangle}$ controlled by gates: forget $\Gamma_f$, update $\Gamma_u$, relevance $\Gamma_r$ and output $\Gamma_o$.
 
-![An LSTM cell: the cell state c flows across the top and is changed by the forget, update, relevance and output gates](/assets/images/cme295/lstm-cell.png)
+![An LSTM cell: the cell state c flows across the top and is changed by the forget, update, relevance and output gates](/assets/images/cme295-lecture-1/lstm-cell.png)
 
 The gates **reduce** the vanishing-gradient problem, but the LSTM is **still sequential** and still slow on long sequences. That limitation is what motivates attention.
 
@@ -103,7 +103,7 @@ Introduced in *Attention Is All You Need* (Vaswani et al., 2017).
 
 **Idea:** each token builds a **query** $q$ and compares it to the **keys** $k$ of every token in the sequence. The more similar a key is, the more weight its **value** $v$ gets in the output.
 
-![The query for "teddy bear" is compared with the key of every token in "a cute teddy bear is reading."](/assets/images/cme295/attention-query-keys.png)
+![The query for "teddy bear" is compared with the key of every token in "a cute teddy bear is reading."](/assets/images/cme295-lecture-1/attention-query-keys.png)
 
 With all tokens stacked into matrices $Q \in \mathbb{R}^{n \times d_k}$, $K \in \mathbb{R}^{n \times d_k}$ and $V \in \mathbb{R}^{n \times d_v}$:
 
@@ -121,7 +121,7 @@ For more interactive explainer:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/)
 - [The Transformer Model (MachineLearningMastery)](https://machinelearningmastery.com/the-transformer-model/)
 
-![The full Transformer: an encoder stack on the left and a decoder stack on the right, followed by a linear layer and a softmax](/assets/images/cme295/transformer-architecture.png)
+![The full Transformer: an encoder stack on the left and a decoder stack on the right, followed by a linear layer and a softmax](/assets/images/cme295-lecture-1/transformer-architecture.png)
 
 ### Hyperparameters
 
@@ -143,7 +143,7 @@ For more interactive explainer:
 
 ### Encoder
 
-![The encoder block highlighted: multi-head attention and a feed-forward network, each followed by Add & Norm, stacked N times](/assets/images/cme295/transformer-encoder.png)
+![The encoder block highlighted: multi-head attention and a feed-forward network, each followed by Add & Norm, stacked N times](/assets/images/cme295-lecture-1/transformer-encoder.png)
 
 The encoder rewrites each input token as a function of all the other input tokens. Each of the $N$ layers has:
 
@@ -158,7 +158,7 @@ The encoder rewrites each input token as a function of all the other input token
 
 ### Decoder
 
-![The decoder block highlighted: masked multi-head attention, cross-attention over the encoder output and a feed-forward network, each followed by Add & Norm](/assets/images/cme295/transformer-decoder.png)
+![The decoder block highlighted: masked multi-head attention, cross-attention over the encoder output and a feed-forward network, each followed by Add & Norm](/assets/images/cme295-lecture-1/transformer-decoder.png)
 
 Each of the $N$ decoder layers has three sub-layers, each wrapped in Add & Norm:
 
